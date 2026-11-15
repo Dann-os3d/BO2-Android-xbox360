@@ -84,8 +84,6 @@ En gama media, lo que más ayuda es **Original 880×720** con Nitidez Máxima y 
   Mali-G720, cerraban el juego.
 - Tirones la primera vez en cada mapa mientras se traducen los shaders y se compilan las pipelines de Vulkan (se
   guardan en caché). «Preparar shaders antes de jugar» los evita a cambio de una espera inicial.
-- En algunos Snapdragon el mapa, el cielo o el arma pueden verse en negro con el driver de serie. Prueba un driver
-  Turnip y, si sigue, envía el registro de la última partida.
 - Calentamiento en sesiones largas, sobre todo a resoluciones altas.
 - La Campaña, de momento, se dibuja en 16:9 aunque elijas Pantalla completa.
 
