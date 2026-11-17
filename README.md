@@ -26,7 +26,7 @@ Al abrir la app por primera vez, el lanzador pide la carpeta del juego: la que c
 
 Con la `.iso`, el lanzador comprueba que sea de Black Ops II y avisa si no lo es. Probado con copias en español, inglés
 y portugués; solo necesitas la TU18 de tu región. Si tienes problemas con los archivos, háblanos en el
-[grupo de Discord](https://discord.gg/hdmde3Snr): te ayudaremos.
+[grupo de Discord](https://discord.gg/hdmde3Snr) te ayudaremos.
 
 ---
 
