@@ -1,7 +1,7 @@
 # Black Ops II para Android
 
 Port nativo de **Call of Duty: Black Ops II (2012, Xbox 360)** a Android ARM64, con Campaña, Zombies y Multijugador,
-controles táctiles y renderizador Vulkan. Versión **0.59.0 (beta)**.
+controles táctiles (o mando) y renderizador Vulkan. Versión **0.63.0 (beta)**.
 
 No es un emulador: el código PowerPC del juego se traduce a C++ y se ejecuta de forma nativa. Necesitas tu propia copia
 del juego; este repositorio no contiene datos del juego.
@@ -13,15 +13,19 @@ del juego; este repositorio no contiene datos del juego.
 
 ## Del juego
 
-Tu copia de **Black Ops II de Xbox 360** con el **Title Update 18** (title id `415608C3`, versión `0.0.18.14`).
+Tu copia de **Black Ops II de Xbox 360** (formato GOD o `.iso`) con el **Title Update 18** (title id `415608C3`,
+versión `0.0.18.14`).
 
 Al abrir la app por primera vez, el lanzador pide la carpeta del juego: la que contiene estas carpetas de tu copia:
 
 | Carpeta | Para qué |
 |---|---|
-| `00007000` | El juego (obligatoria) |
-| `000B0000` | Title Update 18 (obligatoria) |
+| `00007000` o el archivo `.iso` | El juego (obligatorio): la carpeta del formato GOD, o en su lugar el archivo `.iso` del juego |
+| `000B0000` | Title Update 18 (obligatoria, también con la `.iso`) |
 | `00000002` | Contenido descargable, mapas DLC (opcional) |
+
+Con la `.iso`, el lanzador comprueba que sea de Black Ops II y avisa si no lo es. Probado con copias en español, inglés
+y portugués; solo necesitas la TU18 de tu región.
 
 ---
 
@@ -41,8 +45,9 @@ En **Ajustes → Biblioteca → Driver de GPU** el lanzador comprueba tu GPU y t
 Se aplican la próxima vez que pulsas Jugar. El lanzador y sus menús están en español, inglés, portugués y ruso (se elige
 al abrirlo por primera vez; los textos del juego dependen de tu copia).
 
-**Controles**: distribución táctil, perfiles y editor. Durante la partida, desliza el indicador del borde izquierdo
-para abrir el menú de controles o salir.
+**Controles**: distribución táctil, perfiles y editor, con botón **CORRER** (carrera automática) y la opción de correr
+también con el joystick. En el editor puedes quitar los controles táctiles; con un mando conectado se ocultan solos.
+Durante la partida, desliza desde el borde izquierdo para abrir el menú de controles o salir.
 
 **Imagen**:
 
@@ -54,7 +59,7 @@ para abrir el menú de controles o salir.
 | Calidad del escenario | La del menú del juego, Baja, Media o Alta (como Xbox 360) |
 | Filtrado anisotrópico | El del juego (2×–4×), 4× u 8× |
 | Memoria para texturas *(experimental)* | 384 MB, 768 MB o 1 GB. Subirla reduce las caídas bruscas de FPS si tu teléfono tiene RAM de sobra |
-| Preparar shaders antes de jugar | Desactivado por defecto. Activado, la primera vez en cada mapa espera en una pantalla de progreso, así evitas tirones en celulares de gama media-baja |
+| Preparar shaders antes de jugar | Desactivado por defecto. Activado, la primera vez en cada mapa (y en el menú) espera unos segundos en una pantalla de progreso, así evitas tirones en celulares de gama media-baja |
 
 **Biblioteca**:
 
@@ -65,6 +70,8 @@ para abrir el menú de controles o salir.
   sistema.
 - **Guardar registro de la última partida**: crea un ZIP con el registro del juego y los datos de tu GPU para enviarlo
   si tienes un problema.
+- **Partidas guardadas** *(experimental)*: copia tu progreso a la carpeta del juego (`bo2-saves`), para no perderlo al
+  desinstalar o actualizar la app.
 
 ---
 
@@ -82,8 +89,8 @@ En gama media, lo que más ayuda es **Original 880×720** con Nitidez Máxima y 
 
 - **Las luces dinámicas están desactivadas** siempre (fogonazos y explosiones sin luz propia): en algunas GPU, como la
   Mali-G720, cerraban el juego.
-- Tirones la primera vez en cada mapa mientras se traducen los shaders y se compilan las pipelines de Vulkan (se
-  guardan en caché). «Preparar shaders antes de jugar» los evita a cambio de una espera inicial.
+- Algún tirón la primera vez en cada mapa mientras se compilan las pipelines de Vulkan (se guardan en caché). Los
+  shaders ya se traducen en segundos. «Preparar shaders antes de jugar» los reduce a cambio de una espera corta.
 - Calentamiento en sesiones largas, sobre todo a resoluciones altas.
 - La Campaña, de momento, se dibuja en 16:9 aunque elijas Pantalla completa.
 
